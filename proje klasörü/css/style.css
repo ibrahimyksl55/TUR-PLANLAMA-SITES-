@@ -1,0 +1,967 @@
+/* Google Fonts Entegrasyonu - Dosyanızın en üstüne eklenmeli */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Genel Ayarlar ve Sıfırlama */
+:root {
+    --primary-color: #3498db; /* Canlı Mavi */
+    --secondary-color: #2c3e50; /* Koyu Lacivert/Gri */
+    --accent-color: #e74c3c; /* Vurgu Kırmızısı */
+    --light-bg: #ecf0f1; /* Açık Gri Arka Plan */
+    --card-bg: #ffffff; /* Kart Arka Planı Beyaz */
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #ddd;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.07);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+    --border-radius-large: 12px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; /* Tüm elemanlar için kutu modeli */
+}
+
+html {
+    scroll-behavior: smooth; /* Yumuşak kaydırma */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Daha modern bir gövde fontu */
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Başlıklar için daha güçlü bir font */
+    color: var(--secondary-color);
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+/* Header - Hero Section Görünümü */
+header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #3a5068 100%);
+    color: #fff;
+    padding: 60px 20px; /* Daha geniş alan */
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+    /* Hero bölümüne bir arka plan resmi eklemek isterseniz: */
+    /* background: url('images/hero-bg.jpg') no-repeat center center/cover; */
+    /* background-attachment: fixed; /* Kaydırıldığında sabit kalması için */
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Hafif koyu overlay */
+    z-index: 1;
+}
+
+header h1, header p {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.8em; /* Çok büyük başlık */
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+    font-size: 1.3em;
+    opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation - Modern ve Şık */
+nav {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 999; /* Header'ın altında ama diğer her şeyin üstünde */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: all var(--transition-speed) ease;
+    border-radius: 8px; /* Hafif yuvarlatılmış köşeler */
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    transform: translateX(-100%);
+    transition: transform var(--transition-speed) ease-out;
+    z-index: -1;
+    border-radius: 8px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    transform: translateX(0);
+}
+
+/* Ortak İçerik Alanı Stilleri */
+.page-content {
+    max-width: 1100px; /* Daha geniş içerik alanı */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+}
+
+.page-content h2 {
+    color: var(--secondary-color);
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    border-bottom: 4px solid var(--primary-color);
+    padding-bottom: 15px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.page-content h3 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 6px solid var(--accent-color);
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.page-content p {
+    margin-bottom: 18px;
+    line-height: 1.8;
+    color: var(--light-text);
+}
+
+.page-content ul,
+.page-content ol {
+    margin-left: 30px;
+    margin-bottom: 25px;
+    color: var(--light-text);
+}
+
+.page-content ul li,
+.page-content ol li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+/* Anasayfa - Main Content Layout */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Daha fazla boşluk */
+    max-width: 1300px;
+    margin: 50px auto;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+/* Anasayfa - Tour Section */
+.tour-section {
+    flex: 3;
+    min-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.tour-highlight-card {
+    display: flex;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    align-items: center;
+    padding: 30px; /* Daha fazla iç boşluk */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid var(--border-color);
+}
+
+.tour-highlight-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Daha belirgin kalkma ve büyüme */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-color: var(--primary-color);
+}
+
+.tour-image-container {
+    flex-shrink: 0;
+    width: 350px; /* Daha büyük resim alanı */
+    height: 250px;
+    margin-right: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tour-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out, filter 0.4s ease-out;
+    filter: brightness(0.95);
+}
+
+.tour-highlight-card:hover .tour-main-image {
+    transform: scale(1.05); /* Resim üzerinde hafif zoom */
+    filter: brightness(1.1); /* Parlama */
+}
+
+.tour-info {
+    flex-grow: 1;
+}
+
+.tour-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    font-size: 2.1em;
+    border-bottom: none;
+    padding-left: 0;
+    border-left: none;
+    font-weight: 700;
+}
+
+.tour-info p {
+    color: var(--light-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1.05em;
+}
+
+.read-more-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary-color), #5e9ddb);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-transform: uppercase;
+    font-size: 0.95em;
+}
+
+.read-more-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease-out, height 0.5s ease-out, opacity 0.5s ease-out;
+    z-index: -1;
+}
+
+.read-more-button:hover {
+    background: linear-gradient(45deg, var(--accent-color), #eb6d5d);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.read-more-button:hover::after {
+    width: 250%;
+    height: 250%;
+    opacity: 1;
+}
+
+/* Anasayfa - Tourist Places Gallery */
+.tourist-places-gallery {
+    flex: 1;
+    min-width: 350px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    padding: 30px;
+    text-align: center;
+}
+
+.tourist-places-gallery h3 {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-size: 2.1em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.gallery-item {
+    margin-bottom: 25px;
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0.2); /* Hafif gri tonlama efekti */
+}
+
+.gallery-item p {
+    font-size: 1em;
+    color: var(--light-text);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Page 1 Specific Styles (Bosna-Hersek & Karadağ Turu) */
+.tour-highlight {
+    background-color: #e3f2fd; /* Light blue */
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    margin: 40px 0;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    border: 1px dashed var(--primary-color);
+}
+
+.tour-highlight h3 {
+    color: var(--primary-color);
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    border-left: none;
+    padding-left: 0;
+    font-weight: 700;
+}
+
+.tour-highlight p {
+    font-size: 1.15em;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.included-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.included-list li {
+    background-color: var(--light-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05em;
+    color: var(--text-color);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.included-list li:hover {
+    transform: translateX(5px);
+    background-color: #e0e9ed;
+}
+
+.included-list li::before {
+    content: '✔️'; /* Daha belirgin bir tik işareti */
+    font-size: 1.3em;
+    color: green;
+}
+
+.price-info {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    margin-top: 40px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.price-info h3 {
+    color: var(--secondary-color);
+    font-size: 2.4em;
+    margin-bottom: 25px;
+    border-bottom: 2px dashed var(--border-color);
+    padding-bottom: 15px;
+    border-left: none;
+    padding-left: 0;
+    font-weight: 700;
+}
+
+.price-info p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.price-info strong {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+.important-note {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-left: 8px solid #ffc107;
+    padding: 20px 25px;
+    border-radius: var(--border-radius-large);
+    margin-top: 40px;
+    font-size: 1em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.important-note h4 {
+    color: #cc9900;
+    margin-top: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 12px;
+    font-size: 1.5em;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Page 2 Specific Styles (Arnavutluk & Makedonya Turu) */
+.tour-image {
+    width: 100%;
+    height: 450px; /* Daha da büyük görsel */
+    object-fit: cover;
+    border-radius: var(--border-radius-large);
+    margin: 30px 0;
+    box-shadow: var(--shadow-medium);
+    border: 2px solid var(--border-color);
+}
+
+.tour-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature-box {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--light-bg);
+    padding: 25px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all var(--transition-speed) ease;
+    border: 1px solid var(--border-color);
+}
+
+.feature-box:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    border-color: var(--primary-color);
+}
+
+.feature-box h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    border-left: none;
+    padding-left: 0;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.feature-box:hover h4 {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.feature-box p {
+    font-size: 1.05em;
+    color: var(--text-color);
+    margin: 0;
+    transition: color var(--transition-speed) ease;
+}
+
+.feature-box:hover p {
+    color: #f0f0f0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    background-color: var(--card-bg);
+}
+
+table th, table td {
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    font-size: 1.05em;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8fbfb; /* Hafif çizgili görünüm */
+}
+
+table tr:hover {
+    background-color: #eaf2f8; /* Hover'da daha belirgin renk */
+}
+
+/* Page 3 Specific Styles (Sırbistan & Bulgaristan Turu) */
+.day-plan {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-soft);
+    border-left: 6px solid var(--primary-color);
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.day-plan:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.day-plan h4 {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    font-size: 1.6em;
+    border-left: none;
+    padding-left: 0;
+    font-weight: 600;
+}
+
+.price-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px; /* Daha fazla boşluk */
+    margin: 40px 0;
+}
+
+.price-card {
+    flex: 1;
+    min-width: 300px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-large);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: var(--card-bg);
+}
+
+.price-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.price-card h4 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.9em;
+    border-bottom: none;
+    padding-left: 0;
+    border-left: none;
+    font-weight: 700;
+}
+
+.price-card .price {
+    font-size: 3.5em; /* Daha büyük fiyat */
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.price-card ul li {
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.price-card ul li::before {
+    content: '✨ '; /* Parlayan yıldız ikonu */
+    color: var(--primary-color);
+}
+
+.price-card p {
+    font-size: 1em;
+    color: var(--light-text);
+}
+
+/* Hakkımda Sayfası */
+.profile {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.profile img {
+    width: 200px; /* Daha büyük profil resmi */
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid var(--primary-color); /* Daha kalın çerçeve */
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: transform var(--transition-speed) ease;
+}
+
+.profile img:hover {
+    transform: scale(1.08) rotate(2deg); /* Hafif büyüme ve dönme efekti */
+}
+
+.profile h2 {
+    color: var(--secondary-color);
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile p {
+    font-size: 1.15em;
+    line-height: 1.9;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info p {
+    font-size: 1.05em;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.contact-info a {
+    font-weight: 600;
+    color: var(--accent-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.contact-info a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px;
+    font-size: 0.95em;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 7px 0;
+    opacity: 0.9;
+}
+
+/* Responsive Tasarım - Mobil Uyumlu hale getirme */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .tour-section,
+    .tourist-places-gallery {
+        min-width: unset;
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    .tour-highlight-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .tour-image-container {
+        width: 100%;
+        height: 280px;
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .tour-info h3 {
+        font-size: 1.9em;
+    }
+
+    .tour-info p {
+        font-size: 1em;
+    }
+
+    .read-more-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+
+    .page-content {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .page-content h2 {
+        font-size: 2.2em;
+    }
+
+    .page-content h3 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .page-content {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .page-content h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .page-content h3 {
+        font-size: 1.6em;
+        margin-top: 30px;
+    }
+
+    .tour-image {
+        height: 300px;
+    }
+
+    .tour-features, .price-options {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feature-box, .price-card {
+        min-width: unset;
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .profile img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile h2 {
+        font-size: 2.2em;
+    }
+
+    .profile p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 30px 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .page-content {
+        padding: 10px;
+    }
+
+    .page-content h2 {
+        font-size: 1.6em;
+    }
+
+    .page-content h3 {
+        font-size: 1.4em;
+    }
+
+    .tour-image-container {
+        height: 200px;
+    }
+
+    .read-more-button {
+        padding: 10px 15px;
+        font-size: 0.85em;
+    }
+
+    .gallery-item img {
+        height: 150px;
+    }
+
+    .included-list li {
+        font-size: 0.9em;
+    }
+
+    .price-info p {
+        font-size: 1em;
+    }
+
+    .price-info strong {
+        font-size: 1.1em;
+    }
+
+    .day-plan h4 {
+        font-size: 1.4em;
+    }
+
+    .price-card .price {
+        font-size: 2.8em;
+    }
+}

@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+:root {
+    --primary-color: #3498db; /* Mavi tonu */
+    --secondary-color: #2c3e50; /* Koyu gri/mavi */
+    --accent-color: #e74c3c; /* Kırmızı tonu */
+    --light-bg: #f4f7f6; /* Açık arka plan */
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #ddd;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
